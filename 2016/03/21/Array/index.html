@@ -57,16 +57,16 @@
 
 
 
-<meta name="description">
+<meta name="description" content="JS数组的用法真的好强大！！！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Array用法总结">
 <meta property="og:url" content="http://yoursite.com/2016/03/21/Array/index.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-21T13:08:08.452Z">
+<meta property="og:description" content="JS数组的用法真的好强大！！！">
+<meta property="og:updated_time" content="2016-03-21T15:11:44.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array用法总结">
-<meta name="twitter:description">
+<meta name="twitter:description" content="JS数组的用法真的好强大！！！">
 
 
 
@@ -263,7 +263,17 @@
       
 
       
-        
+        <p>JS数组的用法真的好强大！！！<br><a id="more"></a></p>
+<h2 id="一-JS数组的遍历"><a href="#一-JS数组的遍历" class="headerlink" title="一.JS数组的遍历"></a>一.JS数组的遍历</h2><p>遍历数组有两种方法<br>第一种：一般的for循环，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"first"</span>,<span class="string">"second"</span>,<span class="string">"third"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;a.length;i++)&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(a[i]+<span class="string">","</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>第二种方法：for…in方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=New <span class="built_in">Array</span>(<span class="string">"first"</span>,<span class="string">"second"</span>,<span class="string">"third"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> a)&#123;</span><br><span class="line">   <span class="built_in">document</span>.write(a[item]+<span class="string">","</span>)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出的结果为first，second，third</p>
+<h2 id="二、数组的操作方法"><a href="#二、数组的操作方法" class="headerlink" title="二、数组的操作方法"></a>二、数组的操作方法</h2><p>1.join和split<br>split()方法和join()用法正好相反，简单说join()方法将数组元素组成字符串，split()方法分割字符串成数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="string">"red"</span>,<span class="string">"yellow"</span>,<span class="string">"green"</span>];</span><br><span class="line">alert(a.join(<span class="string">","</span>)); <span class="comment">//red,yellow,green</span></span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">` </span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line">str=<span class="string">"2,2,3,5,6"</span>;</span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a=str.split(<span class="string">","</span>);<span class="comment">//a是一个数组</span></span><br></pre></td></tr></table></figure></p>
+<p>2.push 将参数添加到原数组末尾，返回修改后的数组长度<br>  pop  从数组末尾移除最后一项，减少数组的length值，返回移除的项<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b=a.push(<span class="number">6</span>,<span class="number">7</span>);<span class="comment">//a:[1,2,3,4,5,6,7] b:7</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b=a.pop();<span class="comment">//a:[1,2,3,4] b:5</span></span><br></pre></td></tr></table></figure>
+<p>3.shift和unshift<br>shift删除原数组第一项，并返回删除元素的值<br>unshift将参数添加到原数组开头，并返回数组的长度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b=a.shift();<span class="comment">//a:[2,3,4,5] b:1</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b=a.unshift(<span class="number">-2</span>,<span class="number">-1</span>);<span class="comment">//a:[-2,-1,1,2,3,4,5] b:7</span></span><br></pre></td></tr></table></figure>
+<p>4.reverse和sort<br>reverse将数组反序<br>sort按指定的参数对数组进行排序<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">a.reverse();<span class="comment">//a:[5,4,3,2,1]</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1,value2</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(value1&lt;value2)&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(value1&gt;value2)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> values=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>];</span><br><span class="line">values.sort(compare);</span><br><span class="line">alert(values); <span class="comment">//0,1,5,10,15</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -391,7 +401,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-JS数组的遍历"><span class="nav-number">1.</span> <span class="nav-text">一.JS数组的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、数组的操作方法"><span class="nav-number">2.</span> <span class="nav-text">二、数组的操作方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
