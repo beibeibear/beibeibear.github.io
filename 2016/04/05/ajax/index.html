@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。">
+<meta name="description" content="传统的JavaScript方法首先回忆一下创建Ajax的流程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css3选择器总结">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/post/index.html">
+<meta property="og:title" content="Ajax在jQuery中的应用">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/ajax/index.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description" content="根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。">
-<meta property="og:updated_time" content="2016-04-09T13:22:42.881Z">
+<meta property="og:description" content="传统的JavaScript方法首先回忆一下创建Ajax的流程">
+<meta property="og:updated_time" content="2016-04-16T15:26:46.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css3选择器总结">
-<meta name="twitter:description" content="根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。">
+<meta name="twitter:title" content="Ajax在jQuery中的应用">
+<meta name="twitter:description" content="传统的JavaScript方法首先回忆一下创建Ajax的流程">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> css3选择器总结 | 做勇敢的自己 </title>
+  <title> Ajax在jQuery中的应用 | 做勇敢的自己 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                css3选择器总结
+                Ajax在jQuery中的应用
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T16:27:23+08:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-04-05T14:44:35+08:00" content="2016-04-05">
+              2016-04-05
             </time>
           </span>
 
@@ -253,62 +253,191 @@
       
 
       
-        <p>根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。<br><a id="more"></a></p>
-<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><p>通配选择器*<br>  用来选择所有元素，如</p>
-<pre><code>*{margin:0;padding:0;}
-</code></pre><p>元素选择器 E<br>ID选择器<br>类选择器<br>群组选择器 selector1,selector2<br>将具有相同样式的元素分组在一起，每个选择器之间必须用逗号隔开</p>
-<h2 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h2><p>后代选择器E F<br>就是选择E元素的所有后代F元素</p>
-<p>子选择器E&gt;F<br>只能选择某元素的子元素，其中E为父元素，F为子元素</p>
-<p>相邻兄弟选择器E+F<br>E和F是同辈元素，F在E元素后面，并且相邻</p>
-<p>通用兄弟选择器E~F<br>是CSS3新加的<br>E和F都是同辈元素，选中E元素后面所有的F元素</p>
-<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><p>动态伪类选择器<br>设置必须遵循”link-visited-hover-active”原则</p>
-<p>目标伪类选择器:target<br>感觉官方的解释很难理解，直接给一个例子吧</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+        <h2 id="传统的JavaScript方法"><a href="#传统的JavaScript方法" class="headerlink" title="传统的JavaScript方法"></a>传统的JavaScript方法</h2><p>首先回忆一下创建Ajax的流程<br><a id="more"></a><br>1.创建XHR对象<br>2.创建一个新的HTTP请求，并指定该请求的方法及验证信息<br>3.设置响应HTTP请求状态变化的函数onreadystatechange()<br>4.发送HTTP请求<br>5.获取异步调用返回的数据<br>6.使用Javascript和DOM实现局部刷新</p>
+<pre><code>var request=new XMLHttpRequest();
+request.open(method,url,true);
+request.onreadystatechange=function(){
+   if(request.readyState==4){
+        if(request.status&gt;=200&amp;&amp;request.status&lt;300||requset.status==304){
+        alert(requset.responseText);
+        }else{
+        alert(&quot;Request was unsuccessful:&quot;+requset.status);
+        }
+   }
+};
+requset.send(null);
+</code></pre><p>XHR对象的readyState属性，该属性表示请求/响应过程的当前活动阶段。<br>0:未初始化，尚未调用open方法。<br>1:启动。已经调用open()方法，尚未调用send()方法。<br>2:发送。已经调用send()方法，尚未接受到响应。<br>3:接受。已经接受到部分响应数据。<br>4:完成。已经接受到全部响应数据，而且已经可以在客户端使用了。</p>
+<p>HTTP状态码:<br>200:成功的标志。<br>301:资源(网页等)被永久转移到其他URL<br>400:客户端错误<br>500:内部服务器错误</p>
+<p>下面利用一个简单的示例来说明这一方法的实现。<br>功能描述:<br>创建两个新页面a.html和b.html，前者用于加载页，在该页中，单击加载按钮后，在不刷新该页面的情况下，将b.html页中的内容显示在a.html页面的<div>标记中；<br>a.html:</div></p>
+<pre><code>&lt;!doctype&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;style&gt;
-:target
-{
-background-color: yellow;
-}
+
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
+    &lt;div class=&quot;divFrame&quot;&gt;
+        &lt;div class=&quot;divTitle&quot;&gt;
+            &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;divContent&quot;&gt;
+            &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;script&gt;
+     var objXmlHttp=null;//声明一个空的XMLHTTP变量
+     function CreateXMLHTTP(){
+     //根据浏览器的不同，返回该变量的实体对象
+        if(window.ActiveXObject){
+            objXmlHttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+        }
+        else{
+            if(window.XMLHttpRequest){
+                objXmlHttp=new XMLHttpRequest();
 
-&lt;p&gt;&lt;a href=&quot;#news1&quot;&gt;跳转至内容 1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#news2&quot;&gt;跳转至内容 2&lt;/a&gt;&lt;/p&gt;
+            }
+            else{
+               alert(&quot;初始化XMLHTTP错误！&quot;)
+            }
+        }
+     }
+     function GetSendData(){
+     //设置发送地址变量并赋初始值
+         var strSendUrl=&quot;b.html?date=&quot;+Date();
+         CreateXMLHTTP();
+         objXmlHttp.open(&quot;GET&quot;,strSendUrl,true);
+         objXmlHttp.onreadystatechange=function(){//回调事件函数
+            if(objXmlHttp.readyState==4){//如果请求完成加载
+                if(objXmlHttp.status==200){//如果响应已成功
+                         //显示获取的数据
+                          document.getElementById(&quot;divTip&quot;).innerHTML=objXmlHttp.responseText;
 
-&lt;p id=&quot;news1&quot;&gt;&lt;b&gt;内容 1...&lt;/b&gt;&lt;/p&gt;
-&lt;p id=&quot;news2&quot;&gt;&lt;b&gt;内容 2...&lt;/b&gt;&lt;/p&gt;
-
-
+                }
+            }
+         }
+         objXmlHttp.send(null);//send发送设置的请求
+     }
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><p>点击链接以后样式出现黄色背景。</p>
-<p>语言伪类选择器<br>为文档指定语言，有两种方法，如果使用HTML5，直接可以设置文档的语言，例如：</p>
-<pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en-US&quot;&gt;
-</code></pre><p>另一种就是手工在文档中指定lang属性，例如：</p>
-<pre><code>&lt;body lang=&quot;fr&quot;&gt;
-</code></pre><p>UI元素状态伪类选择器<br>  E:checked E:enabled E:disabled</p>
-<p>结构伪类选择器<br>重点来啦~<br>它的作用就是可以根据元素在文档树中的某些特性（如他们的相对位置）定位到他们。<br>语法:</p>
-<pre><code>E:first-chlid  =  E:nth-child(1);
-E:last-child  = E:nth-last-child(1);
-</code></pre><p> E:root 伪类选择页面的根元素。十有八九根节点是html元素</p>
-<p> E:nth-child()  odd代表奇数  even代表偶数<br>   :nth-child() 选择器可能需要一些实践才能完全理解。最简单的记忆方法是使用关键词“奇数或偶数”（odd或even），因为在显示由行列组成的数据表格时，这将非常有用。例如，我们可以使用下列内容：</p>
-<pre><code>ul li:nth-child(odd) {
-      background-color: #666;
-      color: #fff; }
-</code></pre><p> 这将使无序列表中的每个奇数行高亮显示。你可能会发现在表格中使用这种技术非常方便。例如：</p>
-<pre><code>table tr:nth-child(even) { … }
-</code></pre><p>:nth-child 选择器更明确灵活，因此，你可以选择列表的第三个元素，像这样：</p>
-<pre><code>li:nth-child(3) { … }
-</code></pre><p>请注意 n 并不是从零开始，第一个元素是 :nth-child(1)，第二个是 :nth-child(2)，以此类推。<br>我们也可以利用一些简单的代数，使它变得更加精彩。考虑以下代码：</p>
-<pre><code>li:nth-child(2n) { … }
-</code></pre><p>当我们以这种方式使用 n，它代表对所有正整数，直到文档耗尽可选择的元素。在这种情况下，它会选择下列列表项：<br>未选择元素 (2 × 0)<br>第 2 个元素 (2 × 1)<br>第 4 个元素 (2 × 2)<br>第 6 个元素 (2 × 3)<br>第 8 个元素 (2 × 4)<br>等等…</p>
-<h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><p>伪元素我们主要讲讲;:before和::after<br>CSS3对伪元素进行了调整，在以前的基础上增加了一个冒号，现代浏览器同时支持这两种写法。<br>之前一直不理解伪元素到底有什么用处，看了网上的一个实例之后开始明白它的妙处了。<br>这里给一个链接，用伪元素实现一个焦点图相框： <a href="http://www.jiawin.com/css-before-after" target="_blank" rel="external">http://www.jiawin.com/css-before-after</a></p>
-<p>属性选择器<br>就不详说了~</p>
-<p>最后来讲讲选择器的优先级。<br>css优先级<br>优先级算是css中的一个非常重要的知识点，也是笔试面试中经常会考到的知识点。 什么是css优先级<br>css优先级，即是指CSS样式在浏览器中被解析的先后顺序。<br>css优先级规则<br>比较简单易记的一种方法就是给不同选择器分配不同的值：<br>1.id选择器默认优先级最高，其权值为100<br>2.class选择器、属性选择器和伪类选择器的权值为10<br>3.标签选择器的优先级较低，其权值为1<br>所以在比较样式的优先级时，只需统计选择符中的id、class、标签名个数，然后把对应的权值相加即可。根据结果便可得出优先级高低。<br>1.结果较大的优先级较高<br>2.结果相同，则后定义的样式优先级较高<br>3.如果样式值中含有!important，则该值优先级最高 </p>
+</code></pre><p>b.html:</p>
+<pre><code>&lt;div class=&quot;clsShow&quot;&gt;
+    姓名：丁锦红&lt;br /&gt;
+    性别； 女&lt;br /&gt;
+    邮箱：18829211547@163.com
+&lt;/div&gt;
+</code></pre><h2 id="load-方法实现异步获取数据"><a href="#load-方法实现异步获取数据" class="headerlink" title="load()方法实现异步获取数据"></a>load()方法实现异步获取数据</h2><p>在jQuery中，使用load()方法获取异步数据的功能。其调用格式为:<br>load(url,[data],[callback])<br>其中参数URL为被加载页面的地址，可选项[data]参数表示发送到服务器的数据，其格式为key/value,另一个可选项[callback]参数表示加载成功后，返回到加载页面的回调函数。<br>示例:</p>
+<pre><code>&lt;!doctype&gt;
+   &lt;html&gt;
+   &lt;head&gt;
+   &lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+   &lt;style&gt;
+
+   &lt;/style&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+       &lt;div class=&quot;divFrame&quot;&gt;
+           &lt;div class=&quot;divTitle&quot;&gt;
+               &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
+           &lt;/div&gt;
+           &lt;div class=&quot;divContent&quot;&gt;
+               &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
+           &lt;/div&gt;
+       &lt;/div&gt;
+   &lt;script&gt;
+      $(function(){
+          $(&quot;#Button1&quot;).click(function(){
+              $(&quot;#divTip&quot;).load(&quot;b.html&quot;);
+          })
+
+      })
+   &lt;/script&gt;
+   &lt;/body&gt;
+   &lt;/html&gt;
+</code></pre><h2 id="jQuery中的全局函数getJSON"><a href="#jQuery中的全局函数getJSON" class="headerlink" title="jQuery中的全局函数getJSON()"></a>jQuery中的全局函数getJSON()</h2><p>虽然使用load方法可以很快地加载到数据页面中，但有时需要到获取的数据进行处理，如果将用load()方法获取的内容进行遍历，也可以进行数据的处理，但这样获取的内容必须先插入页面中，然后才能进行，因此，执行的效率不高，为了解决这个问题,采用JSON文件格式，下面举例说明。<br>创建一个HTML文件</p>
+<pre><code>&lt;!doctype&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class=&quot;divFrame&quot;&gt;
+                &lt;div class=&quot;divTitle&quot;&gt;
+                    &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;divContent&quot;&gt;
+                    &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;script&gt;
+           $(function(){
+               $(&quot;#Button1&quot;).click(function(){
+                   $.getJSON(&quot;UserInfo.json&quot;,function(data){
+                       $(&quot;#divTip&quot;).empty();
+                       var strHTML=&quot;&quot;;
+                       $.each(data,function(InfoIndex,Info)){
+                        strHTML+=&quot;姓名:&quot;+Info[&quot;name&quot;]+&quot;&lt;br&gt;&quot;;
+                         strHTML+=&quot;性别:&quot;+Info[&quot;sex&quot;]+&quot;&lt;br&gt;&quot;;
+                         strHTML+=&quot;邮箱:&quot;+Info[&quot;name&quot;]+&quot;&lt;br&gt;&quot;;
+                       }）
+                       $(&quot;#divTip&quot;).html(strHTML);
+
+                   })
+               })
+
+           })
+           &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+另外创建一个json文件，在文件UserInfo.json中，加入如下代码：
+
+
+ [
+     {
+       &quot;name&quot;:&quot;丁锦红&quot;，
+       &quot;sex&quot;:&quot;女&quot;，
+       &quot;email&quot;:&quot;18829211547@163.com&quot;
+     }
+  ]
+</code></pre><h2 id="jQuery中的全局函数getScript"><a href="#jQuery中的全局函数getScript" class="headerlink" title="jQuery中的全局函数getScript()"></a>jQuery中的全局函数getScript()</h2><p>在jQuery中，除通过全局函数获取.json格式的文件内容外，还可以通过一个全局函数getScript()获取.js文件的内容。<br>示例:</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;divFrame&quot;&gt;
+        &lt;div class=&quot;divTitle&quot;&gt;
+            &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;divContent&quot;&gt;
+            &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;script&gt;
+   $(function(){
+       $(&quot;#Button1&quot;).click(function(){
+               $.getScript(&quot;UserInfo.js&quot;);
+</code></pre><p> })<br>                   })</p>
+<pre><code>   &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>  另外创建一个json文件，在文件UserInfo.js中，加入如下代码：</p>
+<pre><code>var data= [
+      {
+        &quot;name&quot;:&quot;丁锦红&quot;，
+        &quot;sex&quot;:&quot;女&quot;，
+        &quot;email&quot;:&quot;18829211547@163.com&quot;
+      }
+   ]
+  var strHTML=&quot;&quot;;
+ $.each(data,function(InfoIndex,Info)){
+         strHTML+=&quot;姓名:&quot;+Info[&quot;name&quot;]+&quot;&lt;br&gt;&quot;;
+         strHTML+=&quot;性别:&quot;+Info[&quot;sex&quot;]+&quot;&lt;br&gt;&quot;;
+         strHTML+=&quot;邮箱:&quot;+Info[&quot;sex&quot;]+&quot;&lt;br&gt;&quot;;
+         })
+
+  $(&quot;#divTip&quot;).html(strHTML);
+</code></pre><h2 id="jQuery中异步加载XML文档"><a href="#jQuery中异步加载XML文档" class="headerlink" title="jQuery中异步加载XML文档"></a>jQuery中异步加载XML文档</h2><p>在前面我们通过jQuery中的各种全局函数，实现了不同格式数据的异步加载，如HTML,json,js格式数据，有时也会遇到使用XML文档保存数据的情况</p>
+<h2 id="请求服务器数据"><a href="#请求服务器数据" class="headerlink" title="请求服务器数据"></a>请求服务器数据</h2><p>方法:$.get  $.post $.ajax</p>
 
       
     </div>
@@ -326,17 +455,13 @@ E:last-child  = E:nth-last-child(1);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/21/Array/" rel="next" title="Array用法总结">
-                <i class="fa fa-chevron-left"></i> Array用法总结
+              <a href="/2016/03/23/post/" rel="next" title="css3选择器总结">
+                <i class="fa fa-chevron-left"></i> css3选择器总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/05/ajax/" rel="prev" title="Ajax在jQuery中的应用">
-                Ajax在jQuery中的应用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,7 +566,7 @@ E:last-child  = E:nth-last-child(1);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本选择器"><span class="nav-number">1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次选择器"><span class="nav-number">2.</span> <span class="nav-text">层次选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类选择器"><span class="nav-number">3.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪元素"><span class="nav-number">4.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的JavaScript方法"><span class="nav-number">1.</span> <span class="nav-text">传统的JavaScript方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#load-方法实现异步获取数据"><span class="nav-number">2.</span> <span class="nav-text">load()方法实现异步获取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的全局函数getJSON"><span class="nav-number">3.</span> <span class="nav-text">jQuery中的全局函数getJSON()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的全局函数getScript"><span class="nav-number">4.</span> <span class="nav-text">jQuery中的全局函数getScript()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中异步加载XML文档"><span class="nav-number">5.</span> <span class="nav-text">jQuery中异步加载XML文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求服务器数据"><span class="nav-number">6.</span> <span class="nav-text">请求服务器数据</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
