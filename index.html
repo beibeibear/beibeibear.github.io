@@ -216,6 +216,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/17/hello/" itemprop="url">
+                  跨浏览器的事件处理程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T00:00:35+08:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<pre><code>var EventUtil={//添加事件
+   addHandler:function(element,type,handler)//DOM2级
+   {
+   if(element.addEventListener){
+       element.addEventListener(tye,handler,false);//false表示冒泡:由具体到不具体，捕获:由body，document到具体
+   }else if(element.attachEvent)//IE
+   { 
+       element.attachEvent(&quot;on&quot;+type,handler);
+   }else{
+       element[&quot;on&quot;+type]=handler;//DOM0级
+   }},
+
+   getEvent:function(event){
+       return event?event:window.event;//获取event对象
+   }，
+
+   getTarget:function(event){
+       return event.target||event.srcElement;//获取事件目标
+
+   }，
+
+   preventDefault:function(event){
+      if(event.preventDefault){
+          event.preventDefault();
+      }else{
+          event.returnValue=false;//取消事件默认行为
+      }
+   }
+
+   stopPropagation：function(event){//
+
+      if(event.stopPropagation){
+         event.stopPropagation();
+      }else{
+         event.cancelBubble=true;
+      }
+   }
+
+   removehandler:function(element,type,handler){//DOM2级
+   if(element.removeEventListener){
+       element.removeEventListener(tye,handler,false);//false表示冒泡:由具体到不具体，捕获:由body，document到具体
+   }else if(element.detachEvent)//IE
+   { 
+       element.detachEvent(&quot;on&quot;+type,handler);
+   }else{
+       element[&quot;on&quot;+type]=null;//DOM0级
+   }}
+}
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/05/ajax/" itemprop="url">
                   Ajax在jQuery中的应用
                 </a>
@@ -509,7 +646,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
