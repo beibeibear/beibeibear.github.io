@@ -57,16 +57,28 @@
 
 
 
-<meta name="description" content="JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。">
+<meta name="description" content="js继承是主要是依靠原型链来实现的。&amp;lt;！–more–&amp;gt;每个对象都会在其内部初始化一个属性，就是原型如果这个对象内部不存在这个属性，它就会去原型里找这个属性，这个原型又会有自己的原型，于是就会一直这样找下去，就形成了作用域链。例子：
+function SuperType(){
+     this.property=true;
+}
+SuperType.prototype.getSuperV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS设计模式">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/enen/index.html">
+<meta property="og:title" content="原型链">
+<meta property="og:url" content="http://yoursite.com/2016/04/21/jichen/index.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description" content="JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。">
-<meta property="og:updated_time" content="2016-04-21T01:00:54.449Z">
+<meta property="og:description" content="js继承是主要是依靠原型链来实现的。&amp;lt;！–more–&amp;gt;每个对象都会在其内部初始化一个属性，就是原型如果这个对象内部不存在这个属性，它就会去原型里找这个属性，这个原型又会有自己的原型，于是就会一直这样找下去，就形成了作用域链。例子：
+function SuperType(){
+     this.property=true;
+}
+SuperType.prototype.getSuperV">
+<meta property="og:updated_time" content="2016-04-21T02:43:11.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS设计模式">
-<meta name="twitter:description" content="JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。">
+<meta name="twitter:title" content="原型链">
+<meta name="twitter:description" content="js继承是主要是依靠原型链来实现的。&amp;lt;！–more–&amp;gt;每个对象都会在其内部初始化一个属性，就是原型如果这个对象内部不存在这个属性，它就会去原型里找这个属性，这个原型又会有自己的原型，于是就会一直这样找下去，就形成了作用域链。例子：
+function SuperType(){
+     this.property=true;
+}
+SuperType.prototype.getSuperV">
 
 
 
@@ -84,7 +96,7 @@
   };
 </script>
 
-  <title> JS设计模式 | 做勇敢的自己 </title>
+  <title> 原型链 | 做勇敢的自己 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +226,7 @@
             
             
               
-                JS设计模式
+                原型链
               
             
           </h1>
@@ -226,8 +238,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T19:22:55+08:00" content="2016-04-20">
-              2016-04-20
+            <time itemprop="dateCreated" datetime="2016-04-21T09:59:10+08:00" content="2016-04-21">
+              2016-04-21
             </time>
           </span>
 
@@ -253,84 +265,23 @@
       
 
       
-        <p>JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。<br><a id="more"></a><br>创建自定义对象的最简单方式就是创建一个objec实例，然后再向它添加新的属性和方法。</p>
-<pre><code>var person=new Object();
-person.name=&quot;sjh&quot;;
-person.age=&quot;22&quot;;
-person.sayName=function(){
-   return this.name;}
-alert(person.sayName());//sjh
-</code></pre><p>还有一种就是对象字面量的方法</p>
-<pre><code> var person={
-     name:&apos;sjh&apos;,
-     age:22,
-     sayName:function(){ 
-       return this.name;
-     }
+        <p>js继承是主要是依靠原型链来实现的。<br>&lt;！–more–&gt;<br>每个对象都会在其内部初始化一个属性，就是原型<br>如果这个对象内部不存在这个属性，它就会去原型里找这个属性，这个原型又会有自己的原型，于是就会一直这样找下去，就形成了作用域链。<br>例子：</p>
+<pre><code>function SuperType(){
+     this.property=true;
 }
-   alert(person.sayName());
-</code></pre><p>这些方式有一个缺点使用同一个接口创建很多对象。</p>
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式是用函数来封装以特定接口来创建对象</p>
-<pre><code>function createPerson(name,age,job){
-  var o=new Object();
-  o.name=name;
-  o.job=job;
-  o.age=age;
-  o.sayName=function(){
-     alert(this.name);
-  }
-  return o;
- }
- var person1=createPerson(&quot;sjh&quot;,22,&quot;student&quot;);
-  person1.sayName();//sjh
-var person2=createPerson(&quot;djh&quot;,22,&quot;student&quot;);
-  person2.sayName();//djh
-</code></pre><p>解决了创建多个相似对象的问题，却没有解决对象识别的问题</p>
-<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>构造函数模式用来创建特定类型的对象</p>
-<pre><code>function Person(name,age,job){
- this.name=name;
- this.age=age;
- this.job=job;
- this.sayName=function(){
-      alert(this.name);
- };
+SuperType.prototype.getSuperValue=function(){
+     return this.property;
 }
-var person1=new Person(&quot;sjh&quot;,22,&quot;student&quot;);
-person1.sayName();
-var person2=new Person(&quot;djh&quot;,22,&quot;student&quot;);
-person2.sayName();
-</code></pre><p>Person中的代码除了与createPerson()中相同的部分外，还存在以下不同之处<br>1.没有显式地创建对象 2. 直接将属性和方法赋值给this对象 3.没有return语句<br>在这个例子中person1和person2分别保存着Person的一个不同的实例。这两个对象都有一个constructor属性，该属性指向Person</p>
-<p>按照惯例，构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头<br>构造函数可以在另一个函数作用域中调用</p>
-<pre><code>var o=new Object();
-Person.apply(o,[&quot;sjh&quot;,22,&quot;student&quot;]);
-o.sayName();
-</code></pre><p>   所要说明的是 call和apply方法作用相同，它们的区别仅在于接收参数的方式不同，call方法传递给函数的参数必须逐个列出来，apply方法接收的是参数数组 ，这个基本上每个面试都会问</p>
-<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>使用原型模式的好处就是，只要创建一个对象实例，所有的对象都可以共享它所包含的属性和方法</p>
-<pre><code>function Person(){
+function SubType(){
+    this.subproperty=false;
 }
-Person.prototype.name=&apos;djh&apos;;
-Person.prototype.age=22;
-Person.prototype.job=&quot;student&quot;;
-Person.prototype.friends=[&quot;a&quot;,&quot;b&quot;];
-Person.prototype.sayName=function(){
-     alert(this.name);
+SubType.prototype=new SuperType();
+SubType.prototype.getSubValue=function(){
+    return this.subproperty;
 }
-var person1=new Person();
-Person1.sayName();//djh
-var person2=new Person();
-Person2.sayName();//djh
-</code></pre><p>在这个例子中，person1和person2访问的都是同一组属性和同一个sayName()函数<br>如果我们在实例中添加一个属性，而该属性与实例原型中的一个属性同名，那我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性<br>上面那个例子</p>
-<pre><code>person1.name=&quot;sjh&quot;;
-alert(person1.name)//sjh 来自实例
-alert(person2.name)//djh 来自原型
-</code></pre><p>我们可以通过hasOwnProperty()方法来检测一个属性是存在于实例中还是存在原型中<br>当然原型对象也存在问题</p>
-<pre><code>var person1=new Person();
-person1.friends.push(&quot;c&quot;);
-var person2=new Person();
-alert(person1.friends);//&quot;a,b,c&quot;
-alert(person2.friends);//&quot;a,b,c&quot;
-</code></pre><p>所有的实例共享了一个数组</p>
-<p>组合使用构造函数模式和原型模式<br>function Person(name,age,job){<br>    this.name=name;<br>    this.age=age;<br>    this.job=job;<br>    this.friends=[“a”,”b”];<br>}<br>Person.prototype={<br>    constructor:Person,<br>    sayName:function(){<br>       alert(this.name);<br>    }<br>}<br>var person1=new Person(“djh”,22,”student”);<br>var person2=new Person(“sjh”,22,”student”);<br>person1.friends.push(“c”);<br>alert(person1.friends);//“a,b,c”<br>alert(person2.friends);//“a,b”</p>
+var instance=new SubType();
+alert(instance.getSuperValue());//true
+</code></pre><p>在这个例子中，instance指向SubType的原型，SubType的原型又指向SuperType的原型。</p>
 
       
     </div>
@@ -348,17 +299,13 @@ alert(person2.friends);//&quot;a,b,c&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/19/aha/" rel="next" title="常见数组操作方法">
-                <i class="fa fa-chevron-left"></i> 常见数组操作方法
+              <a href="/2016/04/21/bibao/" rel="next" title="JS闭包">
+                <i class="fa fa-chevron-left"></i> JS闭包
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/21/bibao/" rel="prev" title="JS闭包">
-                JS闭包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,7 +410,7 @@ alert(person2.friends);//&quot;a,b,c&quot;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数模式"><span class="nav-number">2.</span> <span class="nav-text">构造函数模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式"><span class="nav-number">3.</span> <span class="nav-text">原型模式</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

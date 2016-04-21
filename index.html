@@ -216,6 +216,111 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/21/jichen/" itemprop="url">
+                  原型链
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-21T09:59:10+08:00" content="2016-04-21">
+              2016-04-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>js继承是主要是依靠原型链来实现的。<br>&lt;！–more–&gt;<br>每个对象都会在其内部初始化一个属性，就是原型<br>如果这个对象内部不存在这个属性，它就会去原型里找这个属性，这个原型又会有自己的原型，于是就会一直这样找下去，就形成了作用域链。<br>例子：</p>
+<pre><code>function SuperType(){
+     this.property=true;
+}
+SuperType.prototype.getSuperValue=function(){
+     return this.property;
+}
+function SubType(){
+    this.subproperty=false;
+}
+SubType.prototype=new SuperType();
+SubType.prototype.getSubValue=function(){
+    return this.subproperty;
+}
+var instance=new SubType();
+alert(instance.getSuperValue());//true
+</code></pre><p>在这个例子中，instance指向SubType的原型，SubType的原型又指向SuperType的原型。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/21/bibao/" itemprop="url">
                   JS闭包
                 </a>
@@ -873,7 +978,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
