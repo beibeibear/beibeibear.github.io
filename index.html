@@ -440,58 +440,12 @@
 
       
         
-          
-            <a id="more"></a>
-<pre><code>var EventUtil={//添加事件
-   addHandler:function(element,type,handler)//DOM2级
-   {
-   if(element.addEventListener){
-       element.addEventListener(tye,handler,false);//false表示冒泡:由具体到不具体，捕获:由body，document到具体
-   }else if(element.attachEvent)//IE
-   { 
-       element.attachEvent(&quot;on&quot;+type,handler);
-   }else{
-       element[&quot;on&quot;+type]=handler;//DOM0级
-   }},
-
-   getEvent:function(event){
-       return event?event:window.event;//获取event对象
-   }，
-
-   getTarget:function(event){
-       return event.target||event.srcElement;//获取事件目标
-
-   }，
-
-   preventDefault:function(event){
-      if(event.preventDefault){
-          event.preventDefault();
-      }else{
-          event.returnValue=false;//取消事件默认行为
-      }
-   }
-
-   stopPropagation：function(event){//
-
-      if(event.stopPropagation){
-         event.stopPropagation();
-      }else{
-         event.cancelBubble=true;
-      }
-   }
-
-   removehandler:function(element,type,handler){//DOM2级
-   if(element.removeEventListener){
-       element.removeEventListener(tye,handler,false);//false表示冒泡:由具体到不具体，捕获:由body，document到具体
-   }else if(element.detachEvent)//IE
-   { 
-       element.detachEvent(&quot;on&quot;+type,handler);
-   }else{
-       element[&quot;on&quot;+type]=null;//DOM0级
-   }}
-}
-</code></pre>
-          
+          <p>跨浏览器的事件处理程序<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/17/hello/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
