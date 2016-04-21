@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="传统的JavaScript方法首先回忆一下创建Ajax的流程">
+<meta name="description" content="JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ajax在jQuery中的应用">
-<meta property="og:url" content="http://yoursite.com/2016/04/05/ajax/index.html">
+<meta property="og:title" content="JS设计模式">
+<meta property="og:url" content="http://yoursite.com/2016/04/20/enen/index.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description" content="传统的JavaScript方法首先回忆一下创建Ajax的流程">
-<meta property="og:updated_time" content="2016-04-16T15:26:46.008Z">
+<meta property="og:description" content="JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。">
+<meta property="og:updated_time" content="2016-04-21T01:00:54.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ajax在jQuery中的应用">
-<meta name="twitter:description" content="传统的JavaScript方法首先回忆一下创建Ajax的流程">
+<meta name="twitter:title" content="JS设计模式">
+<meta name="twitter:description" content="JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> Ajax在jQuery中的应用 | 做勇敢的自己 </title>
+  <title> JS设计模式 | 做勇敢的自己 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                Ajax在jQuery中的应用
+                JS设计模式
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T14:44:35+08:00" content="2016-04-05">
-              2016-04-05
+            <time itemprop="dateCreated" datetime="2016-04-20T19:22:55+08:00" content="2016-04-20">
+              2016-04-20
             </time>
           </span>
 
@@ -253,191 +253,84 @@
       
 
       
-        <h2 id="传统的JavaScript方法"><a href="#传统的JavaScript方法" class="headerlink" title="传统的JavaScript方法"></a>传统的JavaScript方法</h2><p>首先回忆一下创建Ajax的流程<br><a id="more"></a><br>1.创建XHR对象<br>2.创建一个新的HTTP请求，并指定该请求的方法及验证信息<br>3.设置响应HTTP请求状态变化的函数onreadystatechange()<br>4.发送HTTP请求<br>5.获取异步调用返回的数据<br>6.使用Javascript和DOM实现局部刷新</p>
-<pre><code>var request=new XMLHttpRequest();
-request.open(method,url,true);
-request.onreadystatechange=function(){
-   if(request.readyState==4){
-        if(request.status&gt;=200&amp;&amp;request.status&lt;300||requset.status==304){
-        alert(requset.responseText);
-        }else{
-        alert(&quot;Request was unsuccessful:&quot;+requset.status);
-        }
-   }
-};
-requset.send(null);
-</code></pre><p>XHR对象的readyState属性，该属性表示请求/响应过程的当前活动阶段。<br>0:未初始化，尚未调用open方法。<br>1:启动。已经调用open()方法，尚未调用send()方法。<br>2:发送。已经调用send()方法，尚未接受到响应。<br>3:接受。已经接受到部分响应数据。<br>4:完成。已经接受到全部响应数据，而且已经可以在客户端使用了。</p>
-<p>HTTP状态码:<br>200:成功的标志。<br>301:资源(网页等)被永久转移到其他URL<br>400:客户端错误<br>500:内部服务器错误</p>
-<p>下面利用一个简单的示例来说明这一方法的实现。<br>功能描述:<br>创建两个新页面a.html和b.html，前者用于加载页，在该页中，单击加载按钮后，在不刷新该页面的情况下，将b.html页中的内容显示在a.html页面的<div>标记中；<br>a.html:</div></p>
-<pre><code>&lt;!doctype&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style&gt;
-
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;divFrame&quot;&gt;
-        &lt;div class=&quot;divTitle&quot;&gt;
-            &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;divContent&quot;&gt;
-            &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;script&gt;
-     var objXmlHttp=null;//声明一个空的XMLHTTP变量
-     function CreateXMLHTTP(){
-     //根据浏览器的不同，返回该变量的实体对象
-        if(window.ActiveXObject){
-            objXmlHttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
-        }
-        else{
-            if(window.XMLHttpRequest){
-                objXmlHttp=new XMLHttpRequest();
-
-            }
-            else{
-               alert(&quot;初始化XMLHTTP错误！&quot;)
-            }
-        }
+        <p>JS具有原型式面向对象的特点。面向对象具有抽象，继承，封装，多态性的特点。<br><a id="more"></a><br>创建自定义对象的最简单方式就是创建一个objec实例，然后再向它添加新的属性和方法。</p>
+<pre><code>var person=new Object();
+person.name=&quot;sjh&quot;;
+person.age=&quot;22&quot;;
+person.sayName=function(){
+   return this.name;}
+alert(person.sayName());//sjh
+</code></pre><p>还有一种就是对象字面量的方法</p>
+<pre><code> var person={
+     name:&apos;sjh&apos;,
+     age:22,
+     sayName:function(){ 
+       return this.name;
      }
-     function GetSendData(){
-     //设置发送地址变量并赋初始值
-         var strSendUrl=&quot;b.html?date=&quot;+Date();
-         CreateXMLHTTP();
-         objXmlHttp.open(&quot;GET&quot;,strSendUrl,true);
-         objXmlHttp.onreadystatechange=function(){//回调事件函数
-            if(objXmlHttp.readyState==4){//如果请求完成加载
-                if(objXmlHttp.status==200){//如果响应已成功
-                         //显示获取的数据
-                          document.getElementById(&quot;divTip&quot;).innerHTML=objXmlHttp.responseText;
-
-                }
-            }
-         }
-         objXmlHttp.send(null);//send发送设置的请求
-     }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>b.html:</p>
-<pre><code>&lt;div class=&quot;clsShow&quot;&gt;
-    姓名：丁锦红&lt;br /&gt;
-    性别； 女&lt;br /&gt;
-    邮箱：18829211547@163.com
-&lt;/div&gt;
-</code></pre><h2 id="load-方法实现异步获取数据"><a href="#load-方法实现异步获取数据" class="headerlink" title="load()方法实现异步获取数据"></a>load()方法实现异步获取数据</h2><p>在jQuery中，使用load()方法获取异步数据的功能。其调用格式为:<br>load(url,[data],[callback])<br>其中参数URL为被加载页面的地址，可选项[data]参数表示发送到服务器的数据，其格式为key/value,另一个可选项[callback]参数表示加载成功后，返回到加载页面的回调函数。<br>示例:</p>
-<pre><code>&lt;!doctype&gt;
-   &lt;html&gt;
-   &lt;head&gt;
-   &lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
-   &lt;style&gt;
-
-   &lt;/style&gt;
-   &lt;/head&gt;
-   &lt;body&gt;
-       &lt;div class=&quot;divFrame&quot;&gt;
-           &lt;div class=&quot;divTitle&quot;&gt;
-               &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
-           &lt;/div&gt;
-           &lt;div class=&quot;divContent&quot;&gt;
-               &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
-           &lt;/div&gt;
-       &lt;/div&gt;
-   &lt;script&gt;
-      $(function(){
-          $(&quot;#Button1&quot;).click(function(){
-              $(&quot;#divTip&quot;).load(&quot;b.html&quot;);
-          })
-
-      })
-   &lt;/script&gt;
-   &lt;/body&gt;
-   &lt;/html&gt;
-</code></pre><h2 id="jQuery中的全局函数getJSON"><a href="#jQuery中的全局函数getJSON" class="headerlink" title="jQuery中的全局函数getJSON()"></a>jQuery中的全局函数getJSON()</h2><p>虽然使用load方法可以很快地加载到数据页面中，但有时需要到获取的数据进行处理，如果将用load()方法获取的内容进行遍历，也可以进行数据的处理，但这样获取的内容必须先插入页面中，然后才能进行，因此，执行的效率不高，为了解决这个问题,采用JSON文件格式，下面举例说明。<br>创建一个HTML文件</p>
-<pre><code>&lt;!doctype&gt;
-        &lt;html&gt;
-        &lt;head&gt;
-        &lt;/head&gt;
-        &lt;body&gt;
-            &lt;div class=&quot;divFrame&quot;&gt;
-                &lt;div class=&quot;divTitle&quot;&gt;
-                    &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;divContent&quot;&gt;
-                    &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;script&gt;
-           $(function(){
-               $(&quot;#Button1&quot;).click(function(){
-                   $.getJSON(&quot;UserInfo.json&quot;,function(data){
-                       $(&quot;#divTip&quot;).empty();
-                       var strHTML=&quot;&quot;;
-                       $.each(data,function(InfoIndex,Info)){
-                        strHTML+=&quot;姓名:&quot;+Info[&quot;name&quot;]+&quot;&lt;br&gt;&quot;;
-                         strHTML+=&quot;性别:&quot;+Info[&quot;sex&quot;]+&quot;&lt;br&gt;&quot;;
-                         strHTML+=&quot;邮箱:&quot;+Info[&quot;name&quot;]+&quot;&lt;br&gt;&quot;;
-                       }）
-                       $(&quot;#divTip&quot;).html(strHTML);
-
-                   })
-               })
-
-           })
-           &lt;/script&gt;
-        &lt;/body&gt;
-        &lt;/html&gt;
-另外创建一个json文件，在文件UserInfo.json中，加入如下代码：
-
-
- [
-     {
-       &quot;name&quot;:&quot;丁锦红&quot;，
-       &quot;sex&quot;:&quot;女&quot;，
-       &quot;email&quot;:&quot;18829211547@163.com&quot;
-     }
-  ]
-</code></pre><h2 id="jQuery中的全局函数getScript"><a href="#jQuery中的全局函数getScript" class="headerlink" title="jQuery中的全局函数getScript()"></a>jQuery中的全局函数getScript()</h2><p>在jQuery中，除通过全局函数获取.json格式的文件内容外，还可以通过一个全局函数getScript()获取.js文件的内容。<br>示例:</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;divFrame&quot;&gt;
-        &lt;div class=&quot;divTitle&quot;&gt;
-            &lt;input id=&quot;Button1&quot; type=&quot;button&quot; class=&quot;btn&quot; value=&quot;获取数据&quot; onclick=&quot;GetSendData()&quot;&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;divContent&quot;&gt;
-            &lt;div id=&quot;divTip&quot;&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;script&gt;
-   $(function(){
-       $(&quot;#Button1&quot;).click(function(){
-               $.getScript(&quot;UserInfo.js&quot;);
-</code></pre><p> })<br>                   })</p>
-<pre><code>   &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>  另外创建一个json文件，在文件UserInfo.js中，加入如下代码：</p>
-<pre><code>var data= [
-      {
-        &quot;name&quot;:&quot;丁锦红&quot;，
-        &quot;sex&quot;:&quot;女&quot;，
-        &quot;email&quot;:&quot;18829211547@163.com&quot;
-      }
-   ]
-  var strHTML=&quot;&quot;;
- $.each(data,function(InfoIndex,Info)){
-         strHTML+=&quot;姓名:&quot;+Info[&quot;name&quot;]+&quot;&lt;br&gt;&quot;;
-         strHTML+=&quot;性别:&quot;+Info[&quot;sex&quot;]+&quot;&lt;br&gt;&quot;;
-         strHTML+=&quot;邮箱:&quot;+Info[&quot;sex&quot;]+&quot;&lt;br&gt;&quot;;
-         })
-
-  $(&quot;#divTip&quot;).html(strHTML);
-</code></pre><h2 id="jQuery中异步加载XML文档"><a href="#jQuery中异步加载XML文档" class="headerlink" title="jQuery中异步加载XML文档"></a>jQuery中异步加载XML文档</h2><p>在前面我们通过jQuery中的各种全局函数，实现了不同格式数据的异步加载，如HTML,json,js格式数据，有时也会遇到使用XML文档保存数据的情况</p>
-<h2 id="请求服务器数据"><a href="#请求服务器数据" class="headerlink" title="请求服务器数据"></a>请求服务器数据</h2><p>方法:$.get  $.post $.ajax</p>
+}
+   alert(person.sayName());
+</code></pre><p>这些方式有一个缺点使用同一个接口创建很多对象。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式是用函数来封装以特定接口来创建对象</p>
+<pre><code>function createPerson(name,age,job){
+  var o=new Object();
+  o.name=name;
+  o.job=job;
+  o.age=age;
+  o.sayName=function(){
+     alert(this.name);
+  }
+  return o;
+ }
+ var person1=createPerson(&quot;sjh&quot;,22,&quot;student&quot;);
+  person1.sayName();//sjh
+var person2=createPerson(&quot;djh&quot;,22,&quot;student&quot;);
+  person2.sayName();//djh
+</code></pre><p>解决了创建多个相似对象的问题，却没有解决对象识别的问题</p>
+<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><p>构造函数模式用来创建特定类型的对象</p>
+<pre><code>function Person(name,age,job){
+ this.name=name;
+ this.age=age;
+ this.job=job;
+ this.sayName=function(){
+      alert(this.name);
+ };
+}
+var person1=new Person(&quot;sjh&quot;,22,&quot;student&quot;);
+person1.sayName();
+var person2=new Person(&quot;djh&quot;,22,&quot;student&quot;);
+person2.sayName();
+</code></pre><p>Person中的代码除了与createPerson()中相同的部分外，还存在以下不同之处<br>1.没有显式地创建对象 2. 直接将属性和方法赋值给this对象 3.没有return语句<br>在这个例子中person1和person2分别保存着Person的一个不同的实例。这两个对象都有一个constructor属性，该属性指向Person</p>
+<p>按照惯例，构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头<br>构造函数可以在另一个函数作用域中调用</p>
+<pre><code>var o=new Object();
+Person.apply(o,[&quot;sjh&quot;,22,&quot;student&quot;]);
+o.sayName();
+</code></pre><p>   所要说明的是 call和apply方法作用相同，它们的区别仅在于接收参数的方式不同，call方法传递给函数的参数必须逐个列出来，apply方法接收的是参数数组 ，这个基本上每个面试都会问</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>使用原型模式的好处就是，只要创建一个对象实例，所有的对象都可以共享它所包含的属性和方法</p>
+<pre><code>function Person(){
+}
+Person.prototype.name=&apos;djh&apos;;
+Person.prototype.age=22;
+Person.prototype.job=&quot;student&quot;;
+Person.prototype.friends=[&quot;a&quot;,&quot;b&quot;];
+Person.prototype.sayName=function(){
+     alert(this.name);
+}
+var person1=new Person();
+Person1.sayName();//djh
+var person2=new Person();
+Person2.sayName();//djh
+</code></pre><p>在这个例子中，person1和person2访问的都是同一组属性和同一个sayName()函数<br>如果我们在实例中添加一个属性，而该属性与实例原型中的一个属性同名，那我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性<br>上面那个例子</p>
+<pre><code>person1.name=&quot;sjh&quot;;
+alert(person1.name)//sjh 来自实例
+alert(person2.name)//djh 来自原型
+</code></pre><p>我们可以通过hasOwnProperty()方法来检测一个属性是存在于实例中还是存在原型中<br>当然原型对象也存在问题</p>
+<pre><code>var person1=new Person();
+person1.friends.push(&quot;c&quot;);
+var person2=new Person();
+alert(person1.friends);//&quot;a,b,c&quot;
+alert(person2.friends);//&quot;a,b,c&quot;
+</code></pre><p>所有的实例共享了一个数组</p>
+<p>组合使用构造函数模式和原型模式<br>function Person(name,age,job){<br>    this.name=name;<br>    this.age=age;<br>    this.job=job;<br>    this.friends=[“a”,”b”];<br>}<br>Person.prototype={<br>    constructor:Person,<br>    sayName:function(){<br>       alert(this.name);<br>    }<br>}<br>var person1=new Person(“djh”,22,”student”);<br>var person2=new Person(“sjh”,22,”student”);<br>person1.friends.push(“c”);<br>alert(person1.friends);//“a,b,c”<br>alert(person2.friends);//“a,b”</p>
 
       
     </div>
@@ -455,17 +348,13 @@ requset.send(null);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/23/post/" rel="next" title="css3选择器总结">
-                <i class="fa fa-chevron-left"></i> css3选择器总结
+              <a href="/2016/04/19/aha/" rel="next" title="常见数组操作方法">
+                <i class="fa fa-chevron-left"></i> 常见数组操作方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/17/hello/" rel="prev" title="跨浏览器的事件处理程序">
-                跨浏览器的事件处理程序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,7 +459,7 @@ requset.send(null);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的JavaScript方法"><span class="nav-number">1.</span> <span class="nav-text">传统的JavaScript方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#load-方法实现异步获取数据"><span class="nav-number">2.</span> <span class="nav-text">load()方法实现异步获取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的全局函数getJSON"><span class="nav-number">3.</span> <span class="nav-text">jQuery中的全局函数getJSON()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的全局函数getScript"><span class="nav-number">4.</span> <span class="nav-text">jQuery中的全局函数getScript()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中异步加载XML文档"><span class="nav-number">5.</span> <span class="nav-text">jQuery中异步加载XML文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求服务器数据"><span class="nav-number">6.</span> <span class="nav-text">请求服务器数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数模式"><span class="nav-number">2.</span> <span class="nav-text">构造函数模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型模式"><span class="nav-number">3.</span> <span class="nav-text">原型模式</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
