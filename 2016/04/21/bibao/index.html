@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="统计数组中字符出现的次数">
+<meta name="description" content="什么是闭包呢">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见数组操作方法">
-<meta property="og:url" content="http://yoursite.com/2016/04/19/aha/index.html">
+<meta property="og:title" content="JS闭包">
+<meta property="og:url" content="http://yoursite.com/2016/04/21/bibao/index.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description" content="统计数组中字符出现的次数">
-<meta property="og:updated_time" content="2016-04-19T12:58:35.246Z">
+<meta property="og:description" content="什么是闭包呢">
+<meta property="og:updated_time" content="2016-04-21T01:52:08.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见数组操作方法">
-<meta name="twitter:description" content="统计数组中字符出现的次数">
+<meta name="twitter:title" content="JS闭包">
+<meta name="twitter:description" content="什么是闭包呢">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> 常见数组操作方法 | 做勇敢的自己 </title>
+  <title> JS闭包 | 做勇敢的自己 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                常见数组操作方法
+                JS闭包
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-19T20:41:37+08:00" content="2016-04-19">
-              2016-04-19
+            <time itemprop="dateCreated" datetime="2016-04-21T09:15:25+08:00" content="2016-04-21">
+              2016-04-21
             </time>
           </span>
 
@@ -253,30 +253,86 @@
       
 
       
-        <h2 id="统计数组中字符出现的次数"><a href="#统计数组中字符出现的次数" class="headerlink" title="统计数组中字符出现的次数"></a>统计数组中字符出现的次数</h2><a id="more"></a>
-<p>例如要统计字符串“aaaabbbbcdd”中 “a”出现的次数</p>
-<pre><code>var string=&quot;aaaabbbbcdd&quot;;
-function count(str,ch){
-   count=0;
-   for(var i=0;i&lt;str.length;i++){
-     if(str.charAt(i)==ch){
-       count+=1;
-       }
-     }
-     alert(count);
+        <p>什么是闭包呢<br><a id="more"></a><br>简单的定义一下就是能够读取其他函数内部变量的函数<br>闭包有什么特点？<br>1.函数内再嵌套函数、<br>2.内部函数可以引用外层的参数和变量<br>3.参数和变量不会被垃圾回收机制回收<br>那么闭包到底有什么作用呢，不合理的使用闭包会造成内存泄漏</p>
+<p>js分全局作用域和局部作用域。在函数作用域里面通过作用域链可以访问到全局，但全局怎么访问到函数呢，通过在函数里面再写一个函数，这样就把作用域链加长了，就可以在全局访问到函数里面的数据了。闭包能够访问父级函数里面的数据说明父级里面的数据一直存在，这就会导致内存一直被占着</p>
+<p>来看一个例子</p>
+<pre><code>function f1(){
+n=999;
+  function f2(){
+   alert(n);
+  }
+ return f2;
+ }
+ var result=f1();
+ result();//999
+</code></pre><p>在这个例子中函数f2包含在f1的内部，f2可以读取f1的局部变量，把f2作为返回值，在f1的外部读取它的内部变量</p>
+<p>再来看一个常见的例子，就是点击一个列表的每一项弹出它对应的索引值</p>
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;click事件的几种写法&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul id=&quot;parent&quot;&gt;
+        &lt;li&gt;第1个&lt;/li&gt;
+        &lt;li&gt;第2个&lt;/li&gt;
+        &lt;li&gt;第3个&lt;/li&gt;
+        &lt;li&gt;第4个&lt;/li&gt;
+        &lt;li&gt;第5个&lt;/li&gt;
+        &lt;li&gt;第6个&lt;/li&gt;
+        &lt;li&gt;第7个&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;script&gt;
+    window.onload=function(){
+        var ul = document.getElementById(&apos;parent&apos;);
+        var li = ul.getElementsByTagName(&apos;li&apos;);
+    for(var j = 0; j &lt; li.length; j++) {
+        li[j].onclick = function() {
+            alert(j);
+        }
+        }
+    }
+
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+实际上每个函数都返回7，我们可以通过创建另一个匿名函数强制让闭包的行为符合预期
+
+
+
+
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;click事件的几种写法&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul id=&quot;parent&quot;&gt;
+        &lt;li&gt;第1个&lt;/li&gt;
+        &lt;li&gt;第2个&lt;/li&gt;
+        &lt;li&gt;第3个&lt;/li&gt;
+        &lt;li&gt;第4个&lt;/li&gt;
+        &lt;li&gt;第5个&lt;/li&gt;
+        &lt;li&gt;第6个&lt;/li&gt;
+        &lt;li&gt;第7个&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;script&gt;
+    window.onload=function(){
+        var ul = document.getElementById(&apos;parent&apos;);
+        var li = ul.getElementsByTagName(&apos;li&apos;);
+    for(var j = 0; j &lt; li.length; j++) {
+       (function(e){
+        li[e].onclick = function() {
+            alert(e+1);
+        }
+        })(j);
+    }
 }
-count(string,&quot;a&quot;);//4
-</code></pre><h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><pre><code>var arr=[1,2,2,2,3,4,5];
-Array.prototype.unique=function(){
- var n=[];//新建一个临时数组
- for(var i=0;i&lt;this.length;i++)//遍历当前数组
- {
- if（n.indexOf（this[i])==-1)
- n.push(this[i]);
-}
-return n;
-}
-console.log(arr.unique);//[1,2,3,4,5]
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
       
     </div>
@@ -294,17 +350,13 @@ console.log(arr.unique);//[1,2,3,4,5]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/17/hello/" rel="next" title="跨浏览器的事件处理程序">
-                <i class="fa fa-chevron-left"></i> 跨浏览器的事件处理程序
+              <a href="/2016/04/20/enen/" rel="next" title="JS设计模式">
+                <i class="fa fa-chevron-left"></i> JS设计模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/20/enen/" rel="prev" title="JS设计模式">
-                JS设计模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,7 +461,7 @@ console.log(arr.unique);//[1,2,3,4,5]
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计数组中字符出现的次数"><span class="nav-number">1.</span> <span class="nav-text">统计数组中字符出现的次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组去重"><span class="nav-number">2.</span> <span class="nav-text">数组去重</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
