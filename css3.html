@@ -57,15 +57,45 @@
 
 
 
-<meta name="description">
+<meta name="description" content="ul{
+    list-style:none;
+	height:550px;
+	width:600px;
+	margin:50px auto;}
+ul li{
+    dispaly:inline;
+	-webkit-perspective:500;
+	-webkit-transform-style:preserve-3d;
+	-webkit-tansition-property:per">
 <meta property="og:type" content="website">
 <meta property="og:title" content="做勇敢的自己">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/css3.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description">
+<meta property="og:description" content="ul{
+    list-style:none;
+	height:550px;
+	width:600px;
+	margin:50px auto;}
+ul li{
+    dispaly:inline;
+	-webkit-perspective:500;
+	-webkit-transform-style:preserve-3d;
+	-webkit-tansition-property:per">
+<meta property="og:image" content="http://yoursite.com/01_iron_man_2.jpg">
+<meta property="og:updated_time" content="2016-04-24T12:58:07.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="做勇敢的自己">
-<meta name="twitter:description">
+<meta name="twitter:description" content="ul{
+    list-style:none;
+	height:550px;
+	width:600px;
+	margin:50px auto;}
+ul li{
+    dispaly:inline;
+	-webkit-perspective:500;
+	-webkit-transform-style:preserve-3d;
+	-webkit-tansition-property:per">
+<meta name="twitter:image" content="http://yoursite.com/01_iron_man_2.jpg">
 
 
 
@@ -83,7 +113,13 @@
   };
 </script>
 
-  <title> 归档 | 做勇敢的自己 </title>
+  <title>
+  
+
+  
+     | 做勇敢的自己
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -192,362 +228,77 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 9 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/21/lianglan/" itemprop="url">
-              
-                <span itemprop="name">lianglan</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-21T12:00:34+08:00"
-              content="2016-04-21" >
-          04-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/21/jichen/" itemprop="url">
-              
-                <span itemprop="name">原型链</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-21T09:59:10+08:00"
-              content="2016-04-21" >
-          04-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+      <!doctype html>
+<html>
+<head>
+<style>
+ul{
+    list-style:none;
+	height:550px;
+	width:600px;
+	margin:50px auto;}
+ul li{
+    dispaly:inline;
+	-webkit-perspective:500;
+	-webkit-transform-style:preserve-3d;
+	-webkit-tansition-property:perspective;
+	-webkit-transition-duration:0.5s;}
+ul li:hover{
+    -webkit-perspective:5000;}
+ul li img{
+    border:10px solid #fcfafa;
+	-webkit-transform:rotateY(30deg);
+	-webkit-box-shadow:0 3px 10px #888;
+	-webkit-transition-property:transform;-webkit-transition-duration:0.5s;}
+ul li:hover img{-webkit-transform:rotateY(0);}
+.movieinfo{
+      border:10px solid #fcfafa;
+      padding:20px;
+	  width:200px;
+	  height:180px;
+	  background-color:#deddcd;
+	  margin:-195px 0 0 55px;
+	  position:absolute;
+     -webkit-box-shadow:0 20px 40px #888;
+	 -webkit-transform:translateZ(30px) rotateY(30deg);
+	 -webkit-transition-property:transform,box-shadow,margin;
+	-webkit-transition-duration:0.5s;}
+#movieposters li:hover .movieinfo {
+     -webkit-transform: rotateY(0deg); 
+	 -webkit-box-shadow:0 5px 10px #888; 
+	 margin:-175px 0 0 30px; }
+.movieinfo a { 
+     background-color:#7a3f3a;
+	 padding:5px 10px; color:#eee; 
+	 text-decoration:none;
+	 display:block;
+	 width:80px; 
+	 text-align:center; 
+	 margin:0 auto;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px; }
+.movieinfo a:hover, .movieinfo a:focus {
+    background-color:#6a191f; color:#fff; }
+</style>
+</head>
+<body>
+<ul id="movieposters">
+			<li>
+                <img src="01_iron_man_2.jpg" alt="Iron Man 2">
+				<div class="movieinfo">
+					<h3>Iron Man 2</h3>
+					<p>With the world now aware of his dual life as the armored superhero Iron Man, billionaire inventor Tony...</p>
+					<a href="http://www.imdb.com/title/tt1228705/" title="Iron Man 2" target="_blank" rel="external">More info</a>
+				</div>
+			</li>
+</ul>
+</body>
+</html> 
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/21/bibao/" itemprop="url">
-              
-                <span itemprop="name">JS闭包</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-21T09:15:25+08:00"
-              content="2016-04-21" >
-          04-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/20/enen/" itemprop="url">
-              
-                <span itemprop="name">JS设计模式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-20T19:22:55+08:00"
-              content="2016-04-20" >
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/19/aha/" itemprop="url">
-              
-                <span itemprop="name">常见数组操作方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-19T20:41:37+08:00"
-              content="2016-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/17/hello/" itemprop="url">
-              
-                <span itemprop="name">跨浏览器的事件处理程序</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-17T00:00:35+08:00"
-              content="2016-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/05/ajax/" itemprop="url">
-              
-                <span itemprop="name">Ajax在jQuery中的应用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-05T14:44:35+08:00"
-              content="2016-04-05" >
-          04-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/03/23/post/" itemprop="url">
-              
-                <span itemprop="name">css3选择器总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-23T16:27:23+08:00"
-              content="2016-03-23" >
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/03/21/Array/" itemprop="url">
-              
-                <span itemprop="name">Array用法总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-21T21:01:16+08:00"
-              content="2016-03-21" >
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+  </div>
 
 
           </div>
@@ -555,6 +306,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -697,12 +452,6 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 
