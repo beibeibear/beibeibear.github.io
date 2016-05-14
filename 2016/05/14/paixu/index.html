@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。">
+<meta name="description" content="利用js来实现一些常见的排序算法，在面试中问得还是挺多的，下面我就其进行了简单的总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css3选择器总结">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/post/index.html">
+<meta property="og:title" content="js排序算法">
+<meta property="og:url" content="http://yoursite.com/2016/05/14/paixu/index.html">
 <meta property="og:site_name" content="做勇敢的自己">
-<meta property="og:description" content="根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。">
-<meta property="og:updated_time" content="2016-04-09T13:22:42.881Z">
+<meta property="og:description" content="利用js来实现一些常见的排序算法，在面试中问得还是挺多的，下面我就其进行了简单的总结。">
+<meta property="og:updated_time" content="2016-05-14T08:31:54.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css3选择器总结">
-<meta name="twitter:description" content="根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。">
+<meta name="twitter:title" content="js排序算法">
+<meta name="twitter:description" content="利用js来实现一些常见的排序算法，在面试中问得还是挺多的，下面我就其进行了简单的总结。">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> css3选择器总结 | 做勇敢的自己 </title>
+  <title> js排序算法 | 做勇敢的自己 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                css3选择器总结
+                js排序算法
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T16:27:23+08:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-05-14T13:44:57+08:00" content="2016-05-14">
+              2016-05-14
             </time>
           </span>
 
@@ -253,63 +253,95 @@
       
 
       
-        <p>根据所获取页面中元素的不同，把CSS3选择器分为五大类：基本选择器，层次选择器，伪类选择器，伪元素和属性选择器。<br><a id="more"></a></p>
-<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><p>通配选择器*<br>  用来选择所有元素，如</p>
-<pre><code>*{margin:0;padding:0;}
-</code></pre><p>元素选择器 E<br>ID选择器<br>类选择器<br>群组选择器 selector1,selector2<br>将具有相同样式的元素分组在一起，每个选择器之间必须用逗号隔开</p>
-<h2 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h2><p>后代选择器E F<br>就是选择E元素的所有后代F元素</p>
-<p>子选择器E&gt;F<br>只能选择某元素的子元素，其中E为父元素，F为子元素</p>
-<p>相邻兄弟选择器E+F<br>E和F是同辈元素，F在E元素后面，并且相邻</p>
-<p>通用兄弟选择器E~F<br>是CSS3新加的<br>E和F都是同辈元素，选中E元素后面所有的F元素</p>
-<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><p>动态伪类选择器<br>设置必须遵循”link-visited-hover-active”原则</p>
-<p>目标伪类选择器:target<br>感觉官方的解释很难理解，直接给一个例子吧</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style&gt;
-:target
-{
-background-color: yellow;
+        <p>利用js来实现一些常见的排序算法，在面试中问得还是挺多的，下面我就其进行了简单的总结。<br><a id="more"></a></p>
+<h2 id="sort（）方法"><a href="#sort（）方法" class="headerlink" title="sort（）方法"></a>sort（）方法</h2><p>首先要讲讲JS数组排序的sort方法，它实现的原理是通过两两比较的方法，sort()方法按升序排列数组项，即最小的值位于最前面，最大的值位于最后面，为了实现排序，sort()方法会调用每个数组项的toString()方法,然后比较得到的字符串，即使数组中的每一项都是数值，sort方法比较的也是字符串。因此有必要定义一个比较函数：</p>
+<pre><code>function compare(value1,value2){
+      if(value1&lt;value2){
+         return -1;
+       }else if{
+         return 1;
+       }else{
+        return 0;
+      }
+   }
+</code></pre><p>这个比较函数可以适用于大多数数据类型，只要将这个比较函数作为参数传递给sort（）方法即可。</p>
+<pre><code>var values=[0,1,5,10,15];
+values.sort(compare);
+alert(values);//0,1,5,10,15
+</code></pre><p>这是升序，当然也可以通过比较函数产生降序排序的效果。</p>
+<pre><code>function compare(value1,value2){
+          if(value1&lt;value2){
+             return 1;
+           }else if{
+             return -1;
+           }else{
+            return 0;
+          }
+       }
+</code></pre><p>交换返回值即可。<br>如果仅仅是要比较数值类型，可以使用更简单的比较函数。</p>
+<pre><code>function compare(value1,value2){
+    return value2-value1;
 }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;p&gt;&lt;a href=&quot;#news1&quot;&gt;跳转至内容 1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#news2&quot;&gt;跳转至内容 2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p id=&quot;news1&quot;&gt;&lt;b&gt;内容 1...&lt;/b&gt;&lt;/p&gt;
-&lt;p id=&quot;news2&quot;&gt;&lt;b&gt;内容 2...&lt;/b&gt;&lt;/p&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>点击链接以后样式出现黄色背景。</p>
-<p>语言伪类选择器<br>为文档指定语言，有两种方法，如果使用HTML5，直接可以设置文档的语言，例如：</p>
-<pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en-US&quot;&gt;
-</code></pre><p>另一种就是手工在文档中指定lang属性，例如：</p>
-<pre><code>&lt;body lang=&quot;fr&quot;&gt;
-</code></pre><p>UI元素状态伪类选择器<br>  E:checked E:enabled E:disabled</p>
-<p>结构伪类选择器<br>重点来啦~<br>它的作用就是可以根据元素在文档树中的某些特性（如他们的相对位置）定位到他们。<br>语法:</p>
-<pre><code>E:first-chlid  =  E:nth-child(1);
-E:last-child  = E:nth-last-child(1);
-</code></pre><p> E:root 伪类选择页面的根元素。十有八九根节点是html元素</p>
-<p> E:nth-child()  odd代表奇数  even代表偶数<br>   :nth-child() 选择器可能需要一些实践才能完全理解。最简单的记忆方法是使用关键词“奇数或偶数”（odd或even），因为在显示由行列组成的数据表格时，这将非常有用。例如，我们可以使用下列内容：</p>
-<pre><code>ul li:nth-child(odd) {
-      background-color: #666;
-      color: #fff; }
-</code></pre><p> 这将使无序列表中的每个奇数行高亮显示。你可能会发现在表格中使用这种技术非常方便。例如：</p>
-<pre><code>table tr:nth-child(even) { … }
-</code></pre><p>:nth-child 选择器更明确灵活，因此，你可以选择列表的第三个元素，像这样：</p>
-<pre><code>li:nth-child(3) { … }
-</code></pre><p>请注意 n 并不是从零开始，第一个元素是 :nth-child(1)，第二个是 :nth-child(2)，以此类推。<br>我们也可以利用一些简单的代数，使它变得更加精彩。考虑以下代码：</p>
-<pre><code>li:nth-child(2n) { … }
-</code></pre><p>当我们以这种方式使用 n，它代表对所有正整数，直到文档耗尽可选择的元素。在这种情况下，它会选择下列列表项：<br>未选择元素 (2 × 0)<br>第 2 个元素 (2 × 1)<br>第 4 个元素 (2 × 2)<br>第 6 个元素 (2 × 3)<br>第 8 个元素 (2 × 4)<br>等等…</p>
-<h2 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h2><p>伪元素我们主要讲讲;:before和::after<br>CSS3对伪元素进行了调整，在以前的基础上增加了一个冒号，现代浏览器同时支持这两种写法。<br>之前一直不理解伪元素到底有什么用处，看了网上的一个实例之后开始明白它的妙处了。<br>这里给一个链接，用伪元素实现一个焦点图相框： <a href="http://www.jiawin.com/css-before-after" target="_blank" rel="external">http://www.jiawin.com/css-before-after</a></p>
-<p>属性选择器<br>就不详说了~</p>
-<p>最后来讲讲选择器的优先级。<br>css优先级<br>优先级算是css中的一个非常重要的知识点，也是笔试面试中经常会考到的知识点。 什么是css优先级<br>css优先级，即是指CSS样式在浏览器中被解析的先后顺序。<br>css优先级规则<br>比较简单易记的一种方法就是给不同选择器分配不同的值：<br>1.id选择器默认优先级最高，其权值为100<br>2.class选择器、属性选择器和伪类选择器的权值为10<br>3.标签选择器的优先级较低，其权值为1<br>所以在比较样式的优先级时，只需统计选择符中的id、class、标签名个数，然后把对应的权值相加即可。根据结果便可得出优先级高低。<br>1.结果较大的优先级较高<br>2.结果相同，则后定义的样式优先级较高<br>3.如果样式值中含有!important，则该值优先级最高 </p>
-
+</code></pre><p>这是降序排序。</p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>之所以叫冒泡排序，是因为使用这种排序算法排序时，数据值会像气泡一样从数组的一端漂移到另一端。比较相邻的值,当左侧值大于右侧值时将它们进行互换。</p>
+<p>定义一个交换函数</p>
+<pre><code>function swap(arr,index1,index2){
+     var temp=arr[index1];
+     arr[index1]=arr[index2];
+     arr[index2]=temp;
+}
+</code></pre><p> 冒泡排序的代码 </p>
+<pre><code>function bubblesort(){
+    for(var i=0;i&lt;arr.length;i++){
+        for(var j=0;;j&lt;arr.length-i-1;j++){
+            if(arr[j]&gt;arr[j+1]{
+                    swap(arr,j,j+1);
+             }
+         }
+    }  
+}
+</code></pre><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序从数组的开头开始，将第一个元素和其他元素进行比较。检查完所有元素后，最小的元素会被放到数组的第一个位置，然后算法会从第二个位置继续。这个过程一直进行，当进行到数组的倒数第二个位置时，所有的数据便完成了排序。</p>
+<pre><code>function selectionSort(){
+var min,temp;
+ for(var i=0;i&lt;=arr.length-2;i++){
+   min=i;
+       for(var j=i+1;j&lt;=arr.length-1;j++){
+           if(arr[j]&lt;arr[min]){
+              min=j;
+            }
+        swap(arr,i,min);
+        }
+   }
+}
+</code></pre><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>具体算法描述如下：<br>⒈ 从第一个元素开始，该元素可以认为已经被排序<br>⒉ 取出下一个元素，在已经排序的元素序列中从后向前扫描<br>⒊ 如果该元素（已排序）大于新元素，将该元素移到下一位置<br>⒋ 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>⒌ 将新元素插入到下一位置中<br>⒍ 重复步骤2~5</p>
+<pre><code>function selectionSort(){
+       var temp;
+       for(var i=0;i&lt;arr.length;i++){
+          temp=arr[i];
+          j=i;
+          while(j&gt;0&amp;&amp;arr[j-1]&gt;=temp){
+            arr[j]=arr[j-1];
+            --j
+          }
+          arr[j]=temp;
+       }
+}
+</code></pre><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><pre><code>function quickSort(arr){
+   if(arr.length&lt;1) return arr;
+   var cut=Math.floor(arr.length/2);
+   var left=[];
+   var right=[];
+   var num=arr.splice(cut,1)[0];
+   for(var i=0;i&lt;arr.length;i++){
+       if(arr[i]&lt;num){
+             left.push(arr[i]);
+       }else{
+             right.push(arr[i]);
+       }
+   }
+   return quickSort(left).concat(num,quickSort(right));
+}
+</code></pre>
       
     </div>
 
@@ -326,17 +358,13 @@ E:last-child  = E:nth-last-child(1);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/21/Array/" rel="next" title="Array用法总结">
-                <i class="fa fa-chevron-left"></i> Array用法总结
+              <a href="/2016/04/21/jichen/" rel="next" title="原型链">
+                <i class="fa fa-chevron-left"></i> 原型链
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/05/ajax/" rel="prev" title="Ajax在jQuery中的应用">
-                Ajax在jQuery中的应用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,7 +469,7 @@ E:last-child  = E:nth-last-child(1);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本选择器"><span class="nav-number">1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次选择器"><span class="nav-number">2.</span> <span class="nav-text">层次选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类选择器"><span class="nav-number">3.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪元素"><span class="nav-number">4.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sort（）方法"><span class="nav-number">1.</span> <span class="nav-text">sort（）方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">2.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">3.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">4.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">5.</span> <span class="nav-text">快速排序</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
